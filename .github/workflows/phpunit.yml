@@ -10,6 +10,7 @@ jobs:
                 image:
                     - php:8.2-cli-alpine
                     - php:8.3-cli-alpine
+                    - php:8.4-cli-alpine
 
                 dependencies:
                     - laravel/framework:^10
