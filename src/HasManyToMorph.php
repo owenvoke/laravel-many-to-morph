@@ -13,11 +13,11 @@ trait HasManyToMorph
 {
 	protected function manyToMorph(
 		string $morphName,
-		string $table = null,
-		string $morphTypeColumn = null,
-		string $morphKeyColumn = null,
-		string $foreignKeyColumn = null,
-		string $parentKeyColumn = null
+		string|null $table = null,
+		string|null $morphTypeColumn = null,
+		string|null $morphKeyColumn = null,
+		string|null $foreignKeyColumn = null,
+		string|null $parentKeyColumn = null
 	): ManyToMorph {
 		$table = $table ?? Str::plural($morphName);
 

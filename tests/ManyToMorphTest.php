@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Schema\Blueprint;
 use Nevadskiy\ManyToMorph\HasManyToMorph;
 use Nevadskiy\ManyToMorph\ManyToMorph;
+use PHPUnit\Framework\Attributes\Test;
 
 class ManyToMorphTest extends TestCase
 {
@@ -55,9 +56,7 @@ class ManyToMorphTest extends TestCase
 		});
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_attaches_belongs_to_any_models(): void
 	{
 		$page = Page::create();
@@ -76,9 +75,7 @@ class ManyToMorphTest extends TestCase
 		static::assertEquals($heroSection->getMorphClass(), $pageComponents[0]->page_component_type);
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_attaches_belongs_to_any_models_with_pivot_attributes(): void
 	{
 		$page = Page::create();
@@ -100,9 +97,7 @@ class ManyToMorphTest extends TestCase
 		static::assertEquals(1337, $pageComponents[0]->position);
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_updates_pivot_attributes(): void
 	{
 		$page = Page::create();
@@ -124,9 +119,7 @@ class ManyToMorphTest extends TestCase
 		static::assertEquals(1337, $pageComponents[0]->position);
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_detaches_belongs_to_any_models(): void
 	{
 		$page = Page::create();
@@ -142,9 +135,7 @@ class ManyToMorphTest extends TestCase
 		static::assertCount(0, Capsule::table('page_components')->get());
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_gets_belongs_to_any_models(): void
 	{
 		$page = Page::create();
@@ -175,9 +166,7 @@ class ManyToMorphTest extends TestCase
 		static::assertTrue($components[2]->is($faqSection));
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_sorts_models_by_pivot_attribute(): void
 	{
 		$page = Page::create();
@@ -211,9 +200,7 @@ class ManyToMorphTest extends TestCase
 		static::assertTrue($components[2]->is($faqSection));
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_eager_loads_belongs_to_any_models(): void
 	{
 		$page = Page::create();
@@ -231,9 +218,7 @@ class ManyToMorphTest extends TestCase
 		static::assertCount(1, $pages[0]->components);
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_eager_loads_belongs_to_any_nested_models(): void
 	{
 		$page = Page::create();
@@ -274,9 +259,7 @@ class ManyToMorphTest extends TestCase
 		static::assertCount(3, $pages[0]->components[0]->items);
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_uses_custom_pivot_accessor(): void
 	{
 		$page = Page::create();

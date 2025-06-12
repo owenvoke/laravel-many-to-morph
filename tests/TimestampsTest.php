@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 use Nevadskiy\ManyToMorph\HasManyToMorph;
 use Nevadskiy\ManyToMorph\ManyToMorph;
+use PHPUnit\Framework\Attributes\Test;
 
 class TimestampsTest extends TestCase
 {
@@ -34,9 +35,7 @@ class TimestampsTest extends TestCase
 		});
 	}
 
-	/**
-	 * @test
-	 */
+	#[Test]
 	public function it_uses_custom_pivot_model(): void
 	{
 		Carbon::setTestNow($now = Carbon::now()->startOfSecond());
